@@ -1,0 +1,249 @@
+# ------------------------------------------------------------------------------
+# > Thank you debxp for the video "i3wm: Não utilize a configuração padrão!" 
+# |_  https://www.youtube.com/watch?v=L3bWio4BelE
+# > Thank you TWMLinuxGabriel for a lot of videos about i3wm and related tools 
+# |_  https://www.youtube.com/@TWMLinuxGabriel
+# > Oficial i3 user guide https://i3wm.org/docs/userguide.html
+# ------------------------------------------------------------------------------
+
+
+# ------------------------------------------------------------------------------
+# Variables
+# ------------------------------------------------------------------------------
+
+# bindsym shortener
+set $super		        bindsym Mod4
+
+set $alt 		        Mod1
+set $ctrl		        Control
+set $shf		        Shift	
+
+# exec shortener
+set $exe			    exec --no-startup-id
+set $exealways			exec_always --no-startup-id
+
+# directions keys
+set $ukey		    	Up
+set $dkey	    		Down
+set $lkey	    		Left
+set $rkey	    		Right
+
+set $to_float			floating enable
+
+# default mail client TODO
+# set $mail		    	~/bin/launch_thunderbird 
+
+# colors
+set $darker		    	#080910
+set $dark		    	#181920
+set $black		    	#2F343F
+set $darkgray	  		#3B4252
+set $gray		    	#E7E8EB
+set $white		    	#F5F6F7
+set $red		    	#BF616A
+set $orange		    	#DBAB6B
+set $yellow		    	#EBCB8B
+set $green		    	#A3BE8C
+set $cyan		    	#88C0D0
+set $blue		    	#91B1D1
+set $darkblue	    	#416181
+set $purple		    	#B48EAD
+
+# workspaces
+set $w1			    	"1"
+set $w2				    "2"
+set $w3				    "3"
+set $w4				    "4"
+set $w5				    "5"
+set $w6				    "6"
+set $w7				    "7"
+set $w8				    "8"
+set $w9				    "9"
+set $w10			    "10"
+
+
+# ------------------------------------------------------------------------------
+# Workspaces
+# ------------------------------------------------------------------------------
+
+# Layout padrão
+#workspace_layout tabbed
+
+# cycling
+workspace_auto_back_and_forth 	yes
+
+
+# ------------------------------------------------------------------------------
+# Window
+# ------------------------------------------------------------------------------
+
+# defaults
+default_border 			pixel 2
+default_floating_border normal
+hide_edge_borders 		smart_no_gaps
+
+# Gaps
+for_window [class=".*"] border pixel 2
+gaps 				    inner 5
+gaps 				    outer 1
+smart_borders 			on
+
+# focus default
+focus_follows_mouse 	no
+focus_wrapping 			no
+
+# floating modes
+floating_modifier       $alt 
+
+
+# ------------------------------------------------------------------------------
+# Apearence
+# ------------------------------------------------------------------------------
+
+font pango:SymbolaRegular 11
+
+# class				    border	backgr.	text		indic.	client_border
+client.focused			$black	$black	$blue		$cyan	$purple
+client.unfocused		$darker	$darker	$darkblue	$cyan	$darker
+client.focused_inactive	$dark	$dark	$darkblue	$cyan	$dark
+client.urgent			$red	$red	$red		$cyan	$red
+
+
+# ------------------------------------------------------------------------------
+# Key bindings
+# ------------------------------------------------------------------------------
+
+# ---- Workspaces ----
+# Change to workspace
+$super+1 		    	workspace number $w1
+$super+2 		    	workspace number $w2
+$super+3 		    	workspace number $w3
+$super+4 		    	workspace number $w4
+$super+5 		    	workspace number $w5
+$super+6 		    	workspace number $w6
+$super+7 		    	workspace number $w7
+$super+8 		    	workspace number $w8
+$super+9 		    	workspace number $w9
+$super+0 		    	workspace number $w10
+
+# Move to workspace
+$super+$shf+1 			move container to workspace number $w1
+$super+$shf+2 			move container to workspace number $w2
+$super+$shf+3 			move container to workspace number $w3
+$super+$shf+4 			move container to workspace number $w4
+$super+$shf+5 			move container to workspace number $w5
+$super+$shf+6 			move container to workspace number $w6
+$super+$shf+7 			move container to workspace number $w7
+$super+$shf+8 			move container to workspace number $w8
+$super+$shf+9 			move container to workspace number $w9
+$super+$shf+0 			move container to workspace number $w10
+
+# workspace cycling
+bindsym $ctrl+$alt+$rkey workspace next
+bindsym $ctrl+$alt+$lkey workspace prev
+
+# urgent workspace
+$super+u	 		    [urgent=latest] focus
+
+# ---- Window ----
+# Move window
+$super+$shf+h			move $lkey
+$super+$shf+j 			move $dkey
+$super+$shf+k 			move $ukey
+$super+$shf+l 			move $rkey
+# alternative
+$super+$shf+$lkey 		move $lkey
+$super+$shf+$dkey 		move $dkey
+$super+$shf+$ukey 		move $ukey
+$super+$shf+$rkey 		move $rkey
+
+# Layout switching
+$super+slash			layout toggle splitv splith
+$super+$shf+question 	layout toggle all
+
+# Toogle orientation
+$super+semicolon 		split toggle
+
+#$super+f 			    fullscreen toggle
+bindsym F11			    fullscreen toggle
+#$super+b			    border toggle
+#$super+a 			    focus parent
+$super+q			    kill
+
+# Floating window
+#$super+$shf+space 		floating toggle
+#$super+space 			focus mode_toggle
+# $sup+period           floating toggle
+# $sup+comma            focus mode_toggle
+
+# Change focus
+$super+h                focus $lkey
+$super+j 		       	focus $dkey
+$super+k 		       	focus $ukey
+$super+l 		       	focus $rkey
+
+$super+$lkey 			focus $lkey
+$super+$dkey 			focus $dkey
+$super+$ukey 			focus $ukey
+$super+$rkey 			focus $rkey
+
+# Resizing containers
+$super+$ctrl+$rkey 		resize grow width 5px or 5ppt
+$super+$ctrl+$lkey 		resize shrink width 5px or 5ppt
+$super+$ctrl+$ukey 		resize grow height 5px or 5ppt
+$super+$ctrl+$dkey 		resize shrink height 5px or 5ppt
+
+
+# ---- Program launchers ----
+$super+d                $exe dmenu_run -i -p 'Apps '
+$super+p			    $exe rofi -show drun
+$super+a			    $exe rofi -show window
+$super+Return 	        $exe kitty
+$super+e 			    $exe kitty -e ranger
+$super+w 			    $exe firefox #qutebrowser
+$super+F9 			    $exe pavucontrol
+
+# ---- Session control ----
+$super+$shf+c 			reload
+$super+$shf+r 			restart
+$super+$shf+q 			exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# $sup+Shift+Q                 $exe $bin_path/dmenu-i3-logout
+
+
+# ------------------------------------------------------------------------------
+# Session startup
+# ------------------------------------------------------------------------------
+
+$exe                    xset s off
+$exe                    numlockx on
+$exealways              feh --bg-scale $HOME/Pictures/wall1.jpg
+#$exealways "picom --config $HOME/.config/picom/picom.conf"
+#$exe polkit-xfce-authentication-agent-1
+#exe xrandr ...
+$exealways              $HOME/.config/polybar/launch.sh
+
+
+
+
+# ------------ REVISAR ------------
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+$exe dex --autostart --environment i3
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+$exe xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+$exe nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume $exe pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute $exe pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute $exe pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
