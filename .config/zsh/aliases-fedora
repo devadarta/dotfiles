@@ -1,0 +1,8 @@
+### Fedora commands ###
+alias up='sudo dnf update'
+alias update='up'
+alias in='sudo dnf install'
+alias ins='in'
+alias install='in'
+alias se='dnf search'
+alias search='se'
