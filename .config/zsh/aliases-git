@@ -1,0 +1,11 @@
+### Git Related Aliases ### (REVISAR)
+alias gs='git status'  
+alias gb='git branch'  
+alias gr='git remote -v'  
+alias gl='git log --oneline'      ## Gets a log info view in a single line format
+alias glc="git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50" ## Get a list with the most changed files from 12 months ago.**  
+alias gld='git log –oneline –decorate –graph –all'    ## Show all the branches in the tree format history with pointers.**  
+alias glp="git log -g --grep='PHP' -10 --pretty='%h - %s - %cn - %cd'" ## Gets info from log filtering by some fixed key in commit messages. I am using some keys in message commits, [just like these.](https://gitlab.com/-/snippets/2096890)**  
+alias glf='git for-each-ref --sort=-committerdate'    ## Get commits list by DESC order
+alias gpom='git push origin master'  
+alias gpod='git push origin develop'
