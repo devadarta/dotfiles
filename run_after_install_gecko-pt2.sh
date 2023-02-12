@@ -11,7 +11,7 @@ echo "[`date`] Installing the i3 and others applications"
 while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	i3
 	i3lock
-    i3status
+	i3status
 	dmenu
 	polybar
 	dunst
@@ -30,14 +30,16 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	htop
 	wget
 	curl
+	ImageMagick
 	ranger
-    man
-    geany
+	man
+	geany
 EOF
 )
 
 #Maibe add this packages
 	#make
+	#nodejs
 	#npm
 	#cargo
 	#qemu
