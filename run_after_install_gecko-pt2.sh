@@ -34,6 +34,8 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	ranger
 	man
 	geany
+	xclip
+	jq
 EOF
 )
 
@@ -53,7 +55,7 @@ echo "[`date`] Add Flathub repo to Flatpak"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo "[`date`] Change to ZSH"
-chsh -s /bin/zsh
+chsh -s /usr/bin/zsh
 
 echo Recomended reboot the system
 echo wait 3 seconds ...
