@@ -36,18 +36,16 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	geany
 	xclip
 	jq
+	make
 EOF
 )
 
 #Maibe add this packages
-	#make
 	#nodejs
 	#npm
 	#cargo
-	#qemu
 	#qutebrowser
-	#gnome-screenshot
-    
+	
 #echo "[`date`] Intall base devel "
 #zypper install -y -t pattern devel_basis
 
