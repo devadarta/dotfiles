@@ -37,6 +37,7 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	xclip
 	jq
 	make
+	playerctl
 EOF
 )
 
