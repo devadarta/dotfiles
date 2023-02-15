@@ -58,7 +58,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 
 echo "[`date`] Install todotxt-cli"
-cd $HOME/.local/bin # Pasta criada no arquivo 1
+cd /tmp/
 git clone https://github.com/todotxt/todo.txt-cli.git
 cd todo.txt-cli/
 make
