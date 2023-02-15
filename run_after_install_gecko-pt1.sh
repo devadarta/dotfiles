@@ -12,7 +12,7 @@ echo "[`date`] Refresh repo and Update System"
 sudo zypper refresh
 
 dir_cfg=$HOME/.config
-echo "[`date`] Create config dirs "
+echo "[`date`] Create config dirs and local bin"
 mkdir -p $dir_cfg/
 #mkdir -p $dir_cfg/asdf
 mkdir -p $dir_cfg/backgrounds/
@@ -26,6 +26,8 @@ mkdir -p $dir_cfg/picom/
 mkdir -p $dir_cfg/rofi/
 mkdir -p $dir_cfg/zsh/
 mkdir -p $dir_cfg/zsh/plugins/
+
+mkdir -p $HOME/.local/bin/
 
 echo "[`date`] Create dirs Fonts "
 dir_fonts=$HOME/.local/share/fonts
