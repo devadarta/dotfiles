@@ -1,5 +1,8 @@
 #!/bin/bash
 
+### SCRITP THAT INSTALL SOFTWARES WITH SUDO ###
+
+
 echo "[`date`] Fail on error and report it, debug all lines "
 set -eu -o pipefail
 
@@ -52,6 +55,15 @@ EOF
 
 echo "[`date`] Add Flathub repo to Flatpak"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+
+echo "[`date`] Install todotxt-cli"
+cd $HOME/.local/bin # Pasta criada no arquivo 1
+git clone https://github.com/todotxt/todo.txt-cli.git
+cd todo.txt-cli/
+make
+make install CONFIG_DIR=$HOME/.config INSTALL_DIR=$HOME/.local/bin BASH_COMPLETION=/usr/share/bash-completion/completions
+
 
 echo "[`date`] Change to ZSH"
 chsh -s /usr/bin/zsh
