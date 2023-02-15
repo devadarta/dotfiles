@@ -62,6 +62,7 @@ alias v=nvim
 alias vi=v
 
 ### OTHERS ###
+alias t='$HOME/.local/bin/todo.sh -d $HOME/.config/todo/todo'
 alias top=htop
 alias untar='tar -zxvf $1'  ## Open a tar.gz formated folder
 alias tar='tar -czvf $1'    ## Compressing a folder in tar.gz format  
