@@ -25,3 +25,7 @@ source $HOME/.config/zsh/aliases-suse
 
 # --------------     PATH      --------------
 # export PATH=$HOME/.cargo/bin:$HOME/.local/bin:$PATH
+
+
+# -------------- Custom cmds  --------------
+mkcd(){ mkdir "$1" && cd "$1" && echo "create and change dir successuly" ; } # Create dir/folder and change directory in one command
