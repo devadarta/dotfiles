@@ -1,6 +1,14 @@
 #!/bin/bash
-
 #   Without sudo  #
+
+echo "[`date`] Get HACK font and install"
+cd /tmp/
+wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
+unzip Hack.zip
+rm *Windows*
+cp *.ttf $HOME/.local/bin/
+cd $HOME
+fc-cache -f -v
 
 echo "[`date`] Install NeoVim Plug"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
