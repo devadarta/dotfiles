@@ -54,15 +54,6 @@ echo 'XDG_PUBLICSHARE_DIR="$HOME/public"' >> $dir_cfg/user-dirs.dirs
 echo 'XDG_TEMPLATES_DIR="$HOME/templates"' >> $dir_cfg/user-dirs.dirs
 echo 'XDG_VIDEOS_DIR="$HOME/videos"' >> $dir_cfg/user-dirs.dirs
 
-echo "[`date`] Get HACK font and install"
-cd /tmp/
-wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
-unzip Hack.zip
-rm *Windows*
-cp *.ttf $dir_fonts/Hack
-cd $HOME
-fc-cache -f -v
-
 echo "[`date`] Update system"
 sudo zypper dup -y
 
