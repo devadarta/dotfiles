@@ -1,6 +1,11 @@
 #!/bin/bash
 #   Without sudo  #
 
+echo "[`date`] Install todofi.sh"
+cd $HOME/.local/bin/todo/
+git clone https://github.com/hugokernel/todofi.sh.git
+todofi.sh -c $HOME/.config/todo/todofish.conf
+
 echo "[`date`] Get HACK font and install"
 cd /tmp/
 wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
