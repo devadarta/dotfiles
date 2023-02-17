@@ -30,9 +30,7 @@ mkdir -p $dir_cfg/zsh/plugins/
 mkdir -p $HOME/.local/bin/
 
 echo "[`date`] Create dirs Fonts "
-dir_fonts=$HOME/.local/share/fonts
-mkdir -p $dir_fonts/
-mkdir -p $dir_fonts/Hack/
+mkdir -p $HOME/.local/share/fonts/
 
 echo "[`date`] Rename user dirs"
 mv $HOME/Desktop $HOME/desktop
