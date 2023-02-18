@@ -50,3 +50,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 #echo "[`date`] Install asdf"
 #git clone https://github.com/asdf-vm/asdf.git $HOME/.config/asdf --branch v0.10.2
 #cat "$HOME/.config/asdf/asdf.sh" >> $HOME/.zshrc
+
+echo "`[date]` Install greenclip clipboard manager for rofi"
+cd $HOME/.local/bin
+wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip
+
+
+echo "`[date]` Permission to execute local bin"
+cd $HOME/.local/bin
+chmod +x *
