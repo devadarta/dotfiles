@@ -37,7 +37,6 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	ranger
 	man
 	geany
-	xclip
 	jq
 	make
 	playerctl
@@ -45,6 +44,7 @@ EOF
 )
 
 #Maibe add this packages
+	#xclip
 	#nodejs
 	#npm
 	#cargo
