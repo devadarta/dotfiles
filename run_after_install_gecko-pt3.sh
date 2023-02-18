@@ -2,6 +2,22 @@
 #   Without sudo  #
 
 bin_dir=$HOME/.local/bin
+flatpak_dir=/var/lib/flatpak/exports/bin
+
+echo "Install flatpak apps"
+flatpak install com.spotify.Client org.libreoffice.LibreOffice org.flameshot.Flameshot com.microsoft.Edge com.authy.Authy org.keepassxc.KeePassXC com.discordapp.Discord net.cozic.joplin_desktop org.mozilla.Thunderbird -y
+
+echo "Links simbólicos para acessar via linha de comando"
+ln -s $flatpak_dir/com.spotify.Client $bin_dir/spotify
+ln -s $flatpak_dir/org.flameshot.Flameshot $bin_dir/flameshot
+ln -s $flatpak_dir/com.microsoft.edge $bin_dir/edge
+ln -s $flatpak_dir/org.libreoffice.LibreOffice $bin_dir/loffice
+ln -s $flatpak_dir/com.authy.Authy $bin_dir/authy
+ln -s $flatpak_dir/org.keepassxc.KeePassXC $bin_dir/kpass
+ln -s $flatpak_dir/com.discordapp.Discord $bin_dir/discord
+ln -s $flatpak_dir/net.cozic.joplin_desktop $bin_dir/joplin
+ln -s $flatpak_dir/org.mozilla.Thunderbird $bin_dir/thunderbird
+
 
 echo "[`date`] Install todofi.sh"
 cd $bin_dir
