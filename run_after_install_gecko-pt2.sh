@@ -64,6 +64,10 @@ cd todo.txt-cli/
 make
 make install CONFIG_DIR=$HOME/.config INSTALL_DIR=$HOME/.local/bin BASH_COMPLETION=/usr/share/bash-completion/completions
 
+echo "zscroll dependenci for spotify (INCOMPLETE)"
+cd /tmp/
+git clone https://github.com/noctuid/zscroll
+#sudo python3 zscroll/setup.py install
 
 echo "[`date`] Change to ZSH"
 chsh -s /usr/bin/zsh
