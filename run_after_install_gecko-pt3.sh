@@ -1,8 +1,10 @@
 #!/bin/bash
 #   Without sudo  #
 
+bin_dir=$HOME/.local/bin
+
 echo "[`date`] Install todofi.sh"
-cd $HOME/.local/bin/
+cd $bin_dir
 git clone https://github.com/hugokernel/todofi.sh.git
 todofi.sh -c $HOME/.config/todo/todofish.conf
 
@@ -11,21 +13,23 @@ cd /tmp/
 wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
 unzip Hack.zip
 rm *Windows*
-cp *.ttf $HOME/.local/bin/
+cp *.ttf $bin_dir/
 cd $HOME
 fc-cache -f -v
 
 echo "[`date`] Polybar Modules/Scripts"
 cd /tmp/ 
 git clone https://github.com/polybar/polybar-scripts.git
-cd polybar-scripts/polybar-scripts/
 echo " battery combined udev "
-mv battery-combined-udev/battery-combined-udev.sh $HOME/.local/bin/
+mv polybar-scripts/polybar-scripts/battery-combined-udev/battery-combined-udev.sh $bin_dir/
 echo " system usb udev "
-mv system-usb-udev/system-usb-udev.sh $HOME.local/bin/
+mv polybar-scripts/polybar-scripts/system-usb-udev/system-usb-udev.sh $bin_dir/
 echo " updates flatpak "
-mv updates-flatpak/updates-flatpak.sh $HOME.local/bin/
-
+mv polybar-scripts/polybar-scripts/updates-flatpak/updates-flatpak.sh $bin_dir/
+echo " spotify now-playing "
+git clone https://github.com/PrayagS/polybar-spotify.git
+mv polybar-spotify/get_spotify_status.sh $bin_dir/
+mv polybar-spotify/scroll_spotify_status.sh $bin_dir/
 
 echo "[`date`] Install NeoVim Plug"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
