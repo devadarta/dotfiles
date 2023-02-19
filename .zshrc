@@ -18,7 +18,6 @@ setopt SHARE_HISTORY
 # --------------     Aliases     --------------
 source $HOME/.config/zsh/aliases
 source $HOME/.config/zsh/aliases-suse
-alias t="$HOME/.local/bin/todo.sh -d $HOME/.config/todo/todo"
 # --------------      asdf ?     --------------
 # $HOME/.config/asdf/asdf.sh
 # -------------- Add to path env --------------
