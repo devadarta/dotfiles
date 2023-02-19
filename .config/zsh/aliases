@@ -61,6 +61,9 @@ alias wget='wget -c'                                          ## this one saved 
 alias v=nvim
 alias vi=v
 
+### todo.sh ###
+alias t="$HOME/.local/bin/todo.sh -d $HOME/.config/todo/todo"
+
 ### OTHERS ###
 alias t='$HOME/.local/bin/todo.sh -d $HOME/.config/todo/todo'
 alias top=htop
