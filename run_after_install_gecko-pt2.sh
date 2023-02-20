@@ -40,6 +40,10 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	jq
 	make
 	playerctl
+	nodejs19
+	npm19
+	ripgrep
+	fd
 EOF
 )
 
