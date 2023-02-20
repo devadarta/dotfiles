@@ -20,10 +20,10 @@ source $HOME/.config/zsh/aliases
 source $HOME/.config/zsh/aliases-suse
 # --------------      asdf ?     --------------
 # $HOME/.config/asdf/asdf.sh
-# -------------- Add to path env --------------
+# --------------     Exports     --------------
 # export PATH=$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/bin/greenclip:$PATH
-
+export EDITOR=nvim
 # -------------- Custom Commands --------------
 # Create dir/folder and change directory in one command
 mkcd(){ mkdir "$1" && cd "$1" && echo "create and change dir successuly" ; }
