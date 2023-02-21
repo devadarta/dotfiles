@@ -1,9 +1,9 @@
 # ------------------------------------------------------------------------------
-# > Thank you debxp for the video "i3wm: Não utilize a configuração padrão!" 
-# |_  https://www.youtube.com/watch?v=L3bWio4BelE
-# > Thank you TWMLinuxGabriel for a lot of videos about i3wm and related tools 
-# |_  https://www.youtube.com/@TWMLinuxGabriel
-# > Oficial i3 user guide https://i3wm.org/docs/userguide.html
+# Thank you debxp for the video "i3wm: Não utilize a configuração padrão!" 
+#    https://www.youtube.com/watch?v=L3bWio4BelE
+# Thank you TWMLinuxGabriel for a lot of videos about i3wm and related tools 
+#    https://www.youtube.com/@TWMLinuxGabriel
+# Oficial i3 user guide https://i3wm.org/docs/userguide.html
 # ------------------------------------------------------------------------------
 
 
@@ -12,51 +12,55 @@
 # ------------------------------------------------------------------------------
 
 # bindsym shortener
-set $super                bindsym Mod4
+set $super                          bindsym Mod4
+set $print                          bindsym Print
 
-set $alt                 Mod1
-set $ctrl                Control
-set $shf                 Shift    
+set $alt                            Mod1
+set $ctrl                           Control
+set $shf                            Shift    
+
+# key shortener
+set $alt                            Mod1
+set $ctrl                           Control
+set $shf                            Shift    
 
 # exec shortener
-set $exe                 exec --no-startup-id
-set $exealways           exec_always --no-startup-id
+set $exe                            exec --no-startup-id
+set $exealways                      exec_always --no-startup-id
 
 # directions keys
-set $ukey                Up
-set $dkey                Down
-set $lkey                Left
-set $rkey                Right
+set $ukey                           Up
+set $dkey                           Down
+set $lkey                           Left
+set $rkey                           Right
 
-set $to_float            floating enable
-
-# colors
-set $darker              #080910
-set $dark                #181920
-set $black               #2F343F
-set $darkgray            #3B4252
-set $gray                #E7E8EB
-set $white               #F5F6F7
-set $red                 #BF616A
-set $orange              #DBAB6B
-set $yellow              #EBCB8B
-set $green               #A3BE8C
-set $cyan                #88C0D0
-set $blue                #91B1D1
-set $darkblue            #416181
-set $purple              #B48EAD
+set $to_float                       floating enable
 
 # workspaces
-set $w1                    "1"
-set $w2                    "2"
-set $w3                    "3"
-set $w4                    "4"
-set $w5                    "5"
-set $w6                    "6"
-set $w7                    "7"
-set $w8                    "8"
-set $w9                    "9"
-set $w10                   "10"
+set $w1                             "1  "
+set $w2                             "2  "
+set $w3                             "3  "
+set $w4                             "4  "
+set $w5                             "5  "
+set $w6                             "6  "
+set $w7                             "7  "
+set $w8                             "8 󰝇 "
+set $w9                             "9  "
+set $w10                            "10 "
+
+set $w11                            "11 󰇩 "
+set $w12                            "12"
+set $w13                            "13"
+set $w14                            "14"
+set $w15                            "15"
+set $w16                            "16"
+set $w17                            "17"
+set $w18                            "18"
+set $w19                            "19"
+set $w20                            "20"
+
+set $conf_dir                       $HOME/.config
+set $bin_dir                        $HOME/.local/bin
 
 
 # ------------------------------------------------------------------------------
@@ -67,44 +71,67 @@ set $w10                   "10"
 #workspace_layout tabbed
 
 # cycling
-workspace_auto_back_and_forth     yes
+workspace_auto_back_and_forth       yes
 
+# ---- Assign Workspace ----
+assign [class="firefox"] $w2
+assign [class="edge"] $w5
+assign [class="ranger"] $w3
+assign [class="spotify"] $w9
 
 # ------------------------------------------------------------------------------
 # Window
 # ------------------------------------------------------------------------------
 
 # defaults
-default_border             pixel 2
-default_floating_border    normal
-hide_edge_borders          smart_no_gaps
+default_border                      pixel 1
+default_floating_border             normal
+hide_edge_borders                   smart_no_gaps
 
 # Gaps
-for_window [class=".*"]    border pixel 2
-gaps                       inner 4
-gaps                       outer 0
-smart_gaps                 on
-smart_borders              on
+for_window [class=".*"]             border pixel 1
+gaps                                inner 3
+#gaps                               outer 1
+smart_borders                       on
 
 # focus default
-focus_follows_mouse        no
-focus_wrapping             no
+focus_follows_mouse                 no
+focus_wrapping                      no
 
 # floating modes
-floating_modifier          $alt 
+floating_modifier                   $alt 
 
 
 # ------------------------------------------------------------------------------
-# Apearence
+# Appearence
 # ------------------------------------------------------------------------------
+font pango:Hack Nerd Font 13
 
-font pango:SymbolaRegular 11
+# Colors / Pallete
+set $eerieblack     #220426
+set $fluorblue      #3BE9FF
+set $springreen     #01FAAA
+set $indic          #FFD56B
+#set $dandelion      #FFD56B
 
-# class                    border    backgr.    text        indic.    client_border
-client.focused             $black    $black     $blue       $cyan     $purple
-client.unfocused           $darker   $darker    $darkblue   $cyan     $darker
-client.focused_inactive    $dark     $dark      $darkblue   $cyan     $dark
-client.urgent              $red      $red       $red        $cyan     $red
+set $blackolive                     #353531
+set $blue                           #016FB9
+set $darker                         #080910
+set $dark                           #181920
+set $black                          #2F343F
+set $darkgray                       #3B4252
+set $gray                           #E7E8EB
+set $white                          #F5F6F7
+set $red                            #BF616A
+set $green                          #A3BE8C
+set $darkblue                       #416181
+set $purple                         #B48EAD
+
+# class                 border      backgr.     text        indic.  client_border
+client.focused          $white      $purple     $blackolive $indic  $fluorblue
+client.unfocused        $blackolive $darker     $darkblue   $indic  $eerieblack
+client.focused_inactive $green      $dark       $darkblue   $indic  $eerieblak
+client.urgent           $red        $red        $red        $indic  $red
 
 
 # ------------------------------------------------------------------------------
@@ -112,17 +139,28 @@ client.urgent              $red      $red       $red        $cyan     $red
 # ------------------------------------------------------------------------------
 
 # ---- Workspaces ----
-# Change to workspace
-$super+1                 workspace number $w1
-$super+2                 workspace number $w2
-$super+3                 workspace number $w3
-$super+4                 workspace number $w4
-$super+5                 workspace number $w5
-$super+6                 workspace number $w6
-$super+7                 workspace number $w7
-$super+8                 workspace number $w8
-$super+9                 workspace number $w9
-$super+0                 workspace number $w10
+$super+1                  workspace number $w1
+$super+2                  workspace number $w2
+$super+3                  workspace number $w3
+$super+4                  workspace number $w4
+$super+5                  workspace number $w5
+$super+6                  workspace number $w6
+$super+7                  workspace number $w7
+$super+8                  workspace number $w8
+$super+9                  workspace number $w9
+$super+0                  workspace number $w10
+
+$super+mod2+KP_1                  workspace number $w11
+$super+mod2+KP_2                  workspace number $w12
+$super+mod2+KP_3                  workspace number $w13
+$super+mod2+KP_4                  workspace number $w14
+$super+mod2+KP_5                  workspace number $w15
+$super+mod2+KP_6                  workspace number $w16
+$super+mod2+KP_7                  workspace number $w17
+$super+mod2+KP_8                  workspace number $w18
+$super+mod2+KP_9                  workspace number $w19
+$super+mod2+KP_0                  workspace number $w20
+
 
 # Move to workspace
 $super+$shf+1             move container to workspace number $w1
@@ -136,12 +174,23 @@ $super+$shf+8             move container to workspace number $w8
 $super+$shf+9             move container to workspace number $w9
 $super+$shf+0             move container to workspace number $w10
 
+$super+$shf+mod2+KP_1     move container to workspace number $w11
+$super+$shf+mod2+KP_2     move container to workspace number $w12
+$super+$shf+mod2+KP_3     move container to workspace number $w13
+$super+$shf+mod2+KP_4     move container to workspace number $w14
+$super+$shf+mod2+KP_5     move container to workspace number $w15
+$super+$shf+mod2+KP_6     move container to workspace number $w16
+$super+$shf+mod2+KP_7     move container to workspace number $w17
+$super+$shf+mod2+KP_8     move container to workspace number $w18
+$super+$shf+mod2+KP_9     move container to workspace number $w19
+$super+$shf+mod2+KP_0     move container to workspace number $w20
+
 # workspace cycling
-bindsym $ctrl+$alt+$rkey workspace next
-bindsym $ctrl+$alt+$lkey workspace prev
+bindsym $ctrl+$alt+$rkey  workspace next
+bindsym $ctrl+$alt+$lkey  workspace prev
 
 # urgent workspace
-$super+u                 [urgent=latest] focus
+$super+u                  [urgent=latest] focus
 
 # ---- Window ----
 # Move window
@@ -162,67 +211,80 @@ $super+$shf+question      layout toggle all
 # Toogle orientation
 $super+semicolon          split toggle
 
-#$super+f                 fullscreen toggle
-bindsym F11               fullscreen toggle
-#$super+b                 border toggle
-#$super+a                 focus parent
-$super+q                  kill
+bindsym F11                 fullscreen toggle
+$super+F11                  fullscreen toggle
+$super+q                    kill
+#$super+f                    fullscreen toggle
+#$super+b                    border toggle
+#$super+a                    focus parent
 
 # Floating window
 #$super+$shf+space         floating toggle
 #$super+space              focus mode_toggle
-# $sup+period              floating toggle
-# $sup+comma               focus mode_toggle
+#$sup+period              floating toggle
+#$sup+comma               focus mode_toggle
 
 # Change focus
-$super+h                    focus $lkey
-$super+j                    focus $dkey
-$super+k                    focus $ukey
-$super+l                    focus $rkey
+$super+h                  focus $lkey
+$super+j                  focus $dkey
+$super+k                  focus $ukey
+$super+l                  focus $rkey
 
-$super+$lkey             focus $lkey
-$super+$dkey             focus $dkey
-$super+$ukey             focus $ukey
-$super+$rkey             focus $rkey
+$super+$lkey              focus $lkey
+$super+$dkey              focus $dkey
+$super+$ukey              focus $ukey
+$super+$rkey              focus $rkey
 
 # Resizing containers
-$super+$ctrl+$rkey         resize grow width 5px or 5ppt
-$super+$ctrl+$lkey         resize shrink width 5px or 5ppt
-$super+$ctrl+$ukey         resize grow height 5px or 5ppt
-$super+$ctrl+$dkey         resize shrink height 5px or 5ppt
-
+$super+$ctrl+$rkey        resize grow   width  5px or 5ppt
+$super+$ctrl+$lkey        resize shrink width  5px or 5ppt
+$super+$ctrl+$ukey        resize grow   height 5px or 5ppt
+$super+$ctrl+$dkey        resize shrink height 5px or 5ppt
 
 # ---- Program launchers ----
-$super+d                  $exe dmenu_run -i -p 'Apps '
-$super+p                  $exe rofi -show drun
-$super+a                  $exe rofi -show window
-$super+Return             $exe kitty
-$super+e                  $exe kitty -e ranger
-$super+w                  $exe firefox #qutebrowser
-$super+F9                 $exe pavucontrol
+#$super+d                    $exe dmenu_run -i -p 'Apps '
+$super+r                    $exe rofi -show drun
+$super+a                    $exe rofi -show window
+$super+t                    $exe $bin_dir/todofi.sh
+$super+c                    $exe rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+$super+x                    $exe $bin_dir/dmconf-files
+
+# ---- Applications ----
+$super+Return               $exe kitty
+$super+e                    $exe kitty -e ranger
+$super+w                    $exe firefox #qutebrowser
+$super+d                    $exe discord
+$super+y                    $exe spotify
+$super+m                    $exe thunderbird
+$super+F9                   $exe pavucontrol
+$super+n                    $exe joplin
+$super+p                    $exe wpp
+$super+g                    $exe telegram
+
+# ---- Screen captures ---
+$super+s                    $exe flameshot gui -c
+$print                      $exe flameshot full -c
+$print+$shf                 $exe flameshot screen -c
+$print+$ctrl                $exe flameshot launcher
 
 # ---- Session control ----
-$super+$shf+c             reload
-$super+$shf+r             restart
-$super+$shf+q             exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-# $sup+Shift+Q                 $exe $bin_path/dmenu-i3-logout
-
+$super+$shf+c               reload
+$super+$shf+r               restart
+$super+$shf+q               $exe $bin_dir/rofi-power.sh
+$super+$shf+b               $exe i3lock --image $HOME/pictures/lock.png
 
 # ------------------------------------------------------------------------------
 # Session startup
 # ------------------------------------------------------------------------------
+$exe                    xrandr -s 1920x1080
+$exe                    xset s off
+$exe                    numlockx on
+$exealways              feh --no-fehbg --bg-scale $HOME/pictures/background.jpg
+$exealways              picom --config $conf_dir/picom/picom.conf
+$exealways              $conf_dir/polybar/launch.sh
+$exealways              greenclip daemon
 
-$exe                      xset s off
-$exe                      numlockx on
-$exealways                feh --bg-scale $HOME/Pictures/wall1.jpg
-#$exealways "picom --config $HOME/.config/picom/picom.conf"
 #$exe polkit-xfce-authentication-agent-1
-#exe xrandr ...
-$exealways                $HOME/.config/polybar/launch.sh
-
-
-
-
 # ------------ REVISAR ------------
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -239,9 +301,37 @@ $exe xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 $exe nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume $exe pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute $exe pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute $exe pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# ------------ REVISAR Volume control ------------  
+# Command for the status line
+#   ie: i3blocks, i3status
+set $statuscmd i3status
+
+# Signal used to update the status line
+#   i3blocks uses SIGRTMIN+10 by default
+#   i3status uses SIGUSR1 by default
+set $statussig SIGUSR1
+
+# Amount to increase/decrease volume as a percentage
+set $volumestep 5
+
+# pulseaudio-utils settings
+# Symbolic name for sink (numeric index not supported)
+#   Recommended: comment out this setting and omit the -s option to use default sink
+#   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
+#set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo
+
+# Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
+bindsym XF86AudioRaiseVolume $exe $bin_dir/volume -n -t $statuscmd -u $statussig up $volumestep
+bindsym XF86AudioLowerVolume $exe $bin_dir/volume -n -t $statuscmd -u $statussig down $volumestep
+bindsym XF86AudioMute        $exe $bin_dir/volume -n -t $statuscmd -u $statussig mute
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
