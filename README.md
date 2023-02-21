@@ -1,6 +1,9 @@
 # Deva's dotfiles
 <b>Under construction</b>
 
+<b>https://www.nerdfonts.com/cheat-sheet<b>
+<b>https://www.nerdfonts.com/cheat-sheet<b>
+
 ## SO: Gecko Linux Barebones
 ```run_after_install_gecko_pt1.sh```
 * remove Google Chrome repositories
