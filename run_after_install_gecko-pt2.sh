@@ -20,7 +20,7 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	dunst
 	rofi
 	picom
-	kitty
+	alacritty
 	feh
 	numlockx
 	neovim
@@ -40,8 +40,18 @@ while read -r p ; do zypper install -y $p ; done < <(cat << "EOF"
 	jq
 	make
 	playerctl
-	nodejs19
-	npm19
+        xclip
+	xbacklight
+        binutils 
+	coreutils 
+	curl 
+	fuse 
+	sed 
+	tar 
+	unzip 
+	zsync
+	nodejs20
+	npm20
 	ripgrep
 	fd
 EOF
@@ -54,7 +64,7 @@ EOF
 	#cargo
 	#qutebrowser
 	
-#echo "[`date`] Intall base devel "
+#echo "[`date`] Install base devel "
 #zypper install -y -t pattern devel_basis
 
 echo "[`date`] Add Flathub repo to Flatpak"
