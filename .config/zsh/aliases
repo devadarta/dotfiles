@@ -1,22 +1,30 @@
-### Control ls command output ###
-alias ls='ls --color=auto'                                    ## Colorized the ls output
-alias ll='ls -la'                                             ## Long list format
-alias l.='ls -d .* --color=auto'                              ## Show hidden files
-alias la='l.'
-alias lz='ls --human-readable --size -1 -S --classify'        ## Sort resources by _file_ size  
-alias lu='du -sh * | sort -h'                                 ## Same as former but counting size from folders too
-alias lt='ls -t -1 -long'                                     ## Gets an ordered list of files and folders by changes in time
-alias lc='find . -type f | wc -l'                             ## Gets a total recursirve count of existing files, no folders
-alias ld='ls -d */'                                           ## Gets a list of existing directories from current folder
+### ls/exa command output ###
+alias ls='exa --icons --colour=always'  ## Default with icons and colour
+#alias ls='ls -h --color=auto'          ## Colorized the ls output
+alias la='ls -a'                        ## All files
+alias ll='ls -lh'                       ## columns with header
+alias lll='la -lh'                      ## All files with column with header
+alias l.='ls -T'                        ## Tree View
+alias lt='l.'                           ## Tree View
+alias ltl='l. -l'                       ## Tree view columns
+alias l.l='l. -l'                       ## Tree view columns
+#alias l.='ls -d .* --color=auto'       ## Show hidden files
+alias ld='ls -D'                        ## Directories only
+alias ldt='ld -T'                       ## Dir only Tree view
+alias ld.='ld -T'                       ## Dir onlu Tree view
+alias lo='ls -s'                        ## Order list
+alias lo.='l. -s'                       ## Order list Tree view
+alias lot='l. -s'                       ## Order list Tree view
+alias lu='du -sh * | sort -h'           ## Same as former but counting size from folders too
+alias lc='find . -type f | wc -l'       ## Gets a total recursirve count of existing files, no folders
 
-### Control cd command behavior ###
+### cd command behavior ###
 alias home='cd'
 alias cd.='cd ..'                                             ## get rid of command not found
-alias cd='cd ..'                                              ## get rid of command not found
 alias ..='cd ..'                                              ## short cd ..
 alias ..3='cd ../../../'                                      ## quick way to get out 3 levels dir
 
-### Control grep command output (good for log files) ###
+### grep command output (good for log files) ###
 alias grep='grep --color=auto'                                ## Colorize the grep command output
 alias egrep='egrep --color=auto'                              ## Colorize the egrep command output
 alias fgrep='fgrep --color=auto'                              ## Colorize the fgrep command output
@@ -25,24 +33,30 @@ alias fgrep='fgrep --color=auto'                              ## Colorize the fg
 alias mkdir='mkdir -pv'
 
 ### Colorize diff output ### # need install  colordiff package :)
-#alias diff='colordiff'                                       # You can compare files line by line using diff and use a tool called colordiff to colorize diff output:
+alias diff='colordiff'                                       # You can compare files line by line using diff and use a tool called colordiff to colorize diff output:
+
+### Previsão do tempo Weather)
+alias wttr='curl https://pt-br.wttr.in'
+alias tempo='curl https://pt-br.wttr.in'
+alias moon='curl https://pt-br.wttr.in/moon'
 
 ### Command short cuts to save time ###
 alias h='history'
 alias j='jobs -l'
 
 ### Make mount command output pretty and human readable format ###
-alias mount='mount |column -t'
+alias mntc='mount | column -t'
+alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"  
 
 ### Control output of networking tool called ping
-alias ping='ping -c 5'                                        ## Stop after sending count ECHO_REQUEST packets
+alias png='ping -c 5'                                        ## Stop after sending count ECHO_REQUEST packets
 alias fastping='ping -c 100 -s.2'                             ## Do not wait interval 1 second, go fast
 
 ### Pass halt/reboot via sudo ####
-alias reboot='sudo /sbin/reboot'
-alias poweroff='sudo /sbin/poweroff'
-alias halt='sudo /sbin/halt'
-alias shutdown='sudo /sbin/shutdown'
+alias rest='sudo /sbin/reboot'
+alias pwoff='sudo /sbin/poweroff'
+alias hlt='sudo /sbin/halt'
+alias sdn='sudo /sbin/shutdown -h now'
 
 ### Get system memory, cpu usage, and gpu memory info quickly ###
 alias meminfo='free -m -l -t'                                 ## pass options to free
@@ -60,14 +74,14 @@ alias wget='wget -c'                                          ## this one saved 
 ### NeoVim ###
 alias v=nvim
 alias vi=v
+alias vim=v
+alias nv=v
 
 ### todo.sh ###
 alias t="$HOME/.local/bin/todo.sh -d $HOME/.config/todo/todo"
 
 ### OTHERS ###
-alias t='$HOME/.local/bin/todo.sh -d $HOME/.config/todo/todo'
 alias top=htop
-alias untar='tar -zxvf $1'  ## Open a tar.gz formated folder
-alias tar='tar -czvf $1'    ## Compressing a folder in tar.gz format  
-alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"  
+#alias untar='tar -zxvf $1'  ## Open a tar.gz formated folder
+#alias tarc='tar -czvf $1'    ## Compressing a folder in tar.gz format  
 alias df="df -Tha --total"
