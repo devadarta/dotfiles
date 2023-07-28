@@ -1,0 +1,48 @@
+#!/bin/bash
+
+helpFunction()
+{
+   echo ""
+   echo "Usage: $0 -i value -d value -s value"
+   echo -e "\t-i Increment value"
+   echo -e "\t-d Decrement value"
+   echo -e "\t-s Set value"
+   exit 1 # Exit script after printing help
+}
+
+while getopts "i:d:s:" opt
+do
+    echo "opc: $OPTARG";
+   case "$opt" in
+      i ) parmInc="$OPTARG" ;;
+      d ) parmDec="$OPTARG" ;;
+      s ) parmSet="$OPTARG" ;;
+      ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
+   esac
+done
+
+
+# Print helpFunction in case parameters are empty
+if [ -z "$parmInc" ] && [ -z "$parmDec" ] && [ -z "$parmSet" ]
+then
+   echo "Some or all of the parameters are empty";
+   helpFunction
+fi
+
+# Begin script in case all parameters are correct
+if [ "$parmInc" ];
+then
+    xbacklight -inc $parmInc
+elif [ "$parmDec" ];
+then
+    xbacklight -dec $parmDec
+elif [ "$parmSet" ];
+then
+    xbacklight -set $parmSet
+else
+    echo "ERROR";
+fi
+
+actualValue=$(xbacklight -get)
+
+notify-send "Brilho: $actualValue"
