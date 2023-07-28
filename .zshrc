@@ -7,7 +7,7 @@ fi
 source $HOME/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f $HOME/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
+[[ ! -f $HOME/.config/p10k.zsh ]] || source $HOME/.config/p10k.zsh
 source /usr/share/bash-completion/completions complete -F _todo t 
 # --------------     History     --------------
 HISTSIZE=10000
