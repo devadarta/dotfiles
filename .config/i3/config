@@ -19,14 +19,9 @@ set $alt                            Mod1
 set $ctrl                           Control
 set $shf                            Shift    
 
-# key shortener
-set $alt                            Mod1
-set $ctrl                           Control
-set $shf                            Shift    
-
 # exec shortener
 set $exe                            exec --no-startup-id
-set $exealways                      exec_always --no-startup-id
+set $exealw                         exec_always --no-startup-id
 
 # directions keys
 set $ukey                           Up
@@ -44,13 +39,13 @@ set $w4                             "4  "
 set $w5                             "5  "
 set $w6                             "6  "
 set $w7                             "7  "
-set $w8                             "8 󰝇 "
+set $w8                             "8 󰊻 "
 set $w9                             "9  "
-set $w10                            "10 "
+set $w10                            "10 󰝇"
 
 set $w11                            "11 󰇩 "
-set $w12                            "12"
-set $w13                            "13"
+set $w12                            "12 󰖣"
+set $w13                            "13 󰙯"
 set $w14                            "14"
 set $w15                            "15"
 set $w16                            "16"
@@ -59,7 +54,7 @@ set $w18                            "18"
 set $w19                            "19"
 set $w20                            "20"
 
-set $conf_dir                       $HOME/.config
+set $cfg_dir                        $HOME/.config
 set $bin_dir                        $HOME/.local/bin
 
 
@@ -74,10 +69,17 @@ set $bin_dir                        $HOME/.local/bin
 workspace_auto_back_and_forth       yes
 
 # ---- Assign Workspace ----
-assign [class="firefox"] $w2
-assign [class="edge"] $w5
-assign [class="ranger"] $w3
-assign [class="spotify"] $w9
+assign [class="firefox"]            $w2
+assign [class="Geany"]              $w3
+assign [title="ranger"]             $w3
+assign [class="libreoffice"]        $w4
+assign [class="KeePassXC"]          $w6
+assign [class="Authy Desktop"]      $w6
+assign [class="YaST"]               $w7
+assign [class="Altus"]              $w8
+assign [class="teams-for-linux"]    $w8
+assign [class="Spotify"]            $w9
+assign [class="edge"]               $w11
 
 # ------------------------------------------------------------------------------
 # Window
@@ -105,7 +107,7 @@ floating_modifier                   $alt
 # ------------------------------------------------------------------------------
 # Appearence
 # ------------------------------------------------------------------------------
-font pango:Hack Nerd Font 13
+font pango:Hack Nerd Font 11
 
 # Colors / Pallete
 set $eerieblack     #220426
@@ -250,16 +252,16 @@ $super+c                    $exe rofi -modi "clipboard:greenclip print" -show cl
 $super+x                    $exe $bin_dir/dmconf-files
 
 # ---- Applications ----
-$super+Return               $exe kitty
-$super+e                    $exe kitty -e ranger
+$super+Return               $exe alacritty 
+$super+e                    $exe alacritty -T ranger -e ranger
 $super+w                    $exe firefox #qutebrowser
 $super+d                    $exe discord
-$super+y                    $exe spotify
 $super+m                    $exe thunderbird
 $super+F9                   $exe pavucontrol
 $super+n                    $exe joplin
-$super+p                    $exe wpp
+$super+p                    $exe altus # Whatsapp wpp
 $super+g                    $exe telegram
+$super+i                    $exe flatpak run --branch=stable --arch=x86_64 --command=/app/bin/edge --file-forwarding com.microsoft.Edge @@u %U @@
 
 # ---- Screen captures ---
 $super+s                    $exe flameshot gui -c
@@ -279,10 +281,10 @@ $super+$shf+b               $exe i3lock --image $HOME/pictures/lock.png
 $exe                    xrandr -s 1920x1080
 $exe                    xset s off
 $exe                    numlockx on
-$exealways              feh --no-fehbg --bg-scale $HOME/pictures/background.jpg
-$exealways              picom --config $conf_dir/picom/picom.conf
-$exealways              $conf_dir/polybar/launch.sh
-$exealways              greenclip daemon
+$exealw                 feh --no-fehbg --bg-scale $HOME/pictures/background.jpg
+#$exealw              picom --config $cfg_dir/picom/picom.conf
+$exealw                 $cfg_dir/polybar/launch.sh
+$exealw                 greenclip daemon
 
 #$exe polkit-xfce-authentication-agent-1
 # ------------ REVISAR ------------
@@ -301,19 +303,18 @@ $exe xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 $exe nm-applet
 
-
 # ------------ REVISAR Volume control ------------  
 # Command for the status line
 #   ie: i3blocks, i3status
-set $statuscmd i3status
+set $status_cmd i3status
 
 # Signal used to update the status line
 #   i3blocks uses SIGRTMIN+10 by default
 #   i3status uses SIGUSR1 by default
-set $statussig SIGUSR1
+set $status_sig SIGUSR1
 
 # Amount to increase/decrease volume as a percentage
-set $volumestep 5
+set $vol_step 5
 
 # pulseaudio-utils settings
 # Symbolic name for sink (numeric index not supported)
@@ -322,13 +323,15 @@ set $volumestep 5
 #set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo
 
 # Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
-bindsym XF86AudioRaiseVolume $exe $bin_dir/volume -n -t $statuscmd -u $statussig up $volumestep
-bindsym XF86AudioLowerVolume $exe $bin_dir/volume -n -t $statuscmd -u $statussig down $volumestep
-bindsym XF86AudioMute        $exe $bin_dir/volume -n -t $statuscmd -u $statussig mute
+bindsym XF86AudioRaiseVolume $exe $bin_dir/volume -n -t $status_cmd -u $status_sig up $vol_step
+bindsym XF86AudioLowerVolume $exe $bin_dir/volume -n -t $status_cmd -u $status_sig down $vol_step
+bindsym XF86AudioMute        $exe $bin_dir/volume -n -t $status_cmd -u $status_sig mute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp $exe $bin_dir/screenlight up
+bindsym XF86MonBrightnessDown $exe $bin_dir/screenlight down
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
