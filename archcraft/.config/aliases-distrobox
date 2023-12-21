@@ -1,0 +1,40 @@
+alias dbls='distrobox-list'
+alias dbcr='distrobox-create --image'
+
+# --- Enter 
+alias dbef='alacritty --config-file ~/.config/i3/alacritty/alacritty-distrobox.yml -e distrobox-enter fedora'
+alias dbeo='alacritty --config-file ~/.config/i3/alacritty/alacritty-distrobox.yml -e distrobox-enter opensuse'
+alias dbeu='alacritty --config-file ~/.config/i3/alacritty/alacritty-distrobox.yml -e distrobox-enter ubuntu'
+alias dbea='alacritty --config-file ~/.config/i3/alacritty/alacritty-distrobox.yml -e distrobox-enter arch&'
+alias dbed='alacritty --config-file ~/.config/i3/alacritty/alacritty-distrobox.yml -e distrobox-enter debian'
+alias dbedt='alacritty --config-file ~/.config/i3/alacritty/alacritty-distrobox.yml -e distrobox-enter debianTesting'
+# --- Export
+alias dbex='distrobox-export -v -app'
+
+# --- Fedora
+# Update
+alias dup='sudo dnf update'
+# Search
+alias dse='sudo dnf search'
+# Install
+alias din='sudo dnf install'
+
+# --- OpenSuse / Suse
+# Update
+alias zup='sudo zypper up'
+# Upgrage
+alias zdup='sudo zypper dup'
+# Search
+alias zse='sudo zypper se'
+# Install
+alias zin='sudo zypper in'
+
+# --- Ubuntu / Debian
+# Update
+alias aup='sudo apt update'
+# Upgrade 
+alias adup='sudo apt upgrade'
+# Search
+alias ase='sudo apt search'
+# Install
+alias ain='sudo apt install'

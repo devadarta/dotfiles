@@ -1,0 +1,16 @@
+# ------ arch commands
+alias in='sudo pacman -Syu'     # Install and update package list
+alias up='sudo pacman -Syu'     # Update everything
+alias se='pacman -Ss'           # Search package
+alias rmpkg='sudo pacman -Rsc'  # Remove/uninstall package
+alias uns='sudo pacman -Rsc'    # Remove/uninstall package
+alias lin='pacman -Qe'          # List explictly-installed packages
+alias qe='pacman -Qe'           # List explictly-installed packages
+alias lain='pacman -Q'          # List all installed packages
+alias qa='pacman -Q'            # List all installed packages
+alias ql='pacman -Ql $1'        # What files does this package have?
+alias qii='pacman -Qii $1'      # List information on package
+alias qo='pacman -Qo $1'        # Who owns this file?
+alias qs='pacman -Qs $1'        # Search installed packages for keywords
+alias orph='pacman -Qdt'        # List unneeded packages
+alias clean='sudo pacman -Rns $(pacman -Qdtq)' # Uninstall unneeded packages

@@ -1,0 +1,8 @@
+# ------ aliases flatpak
+alias fup='flatpak update'
+alias fin='flatpak install'
+alias fls='flatpak list --columns=name,application,version'
+alias fse='flatpak search --columns=name,description,application'
+alias frun='flatpak run'
+alias frm='flatpak uninstall'
+alias fun='flatpak uninstall'

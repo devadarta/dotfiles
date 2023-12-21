@@ -1,0 +1,102 @@
+# ------ omz
+alias zshconfig="geany ~/.zshrc"
+alias ohmyzsh="thunar ~/.oh-my-zsh"
+
+# ------ tldr
+alias eg='tldr $1'
+# ------ lolcat
+#alias cat='lolcat'
+
+# ------ ls/exa
+alias ls='exa --icons --colour=always'  ## Default with icons and colour
+alias l='ls -lh'
+alias ll='ls -lah'
+alias la='ls -a'
+alias lm='ls -m'
+alias lr='ls -R'
+alias lg='ls -l --group-directories-first'
+alias l.='ls -T'                        ## Tree View
+alias lt='l.'                           ## Tree View
+alias ltl='l. -l'                       ## Tree view columns
+alias l.l='l. -l'                       ## Tree view columns
+alias ld='ls -D'                        ## Directories only
+alias ldt='ld -T'                       ## Dir only Tree view
+alias ld.='ld -T'                       ## Dir onlu Tree view
+alias lo='ls -s'                        ## Order list
+alias lo.='l. -s'                       ## Order list Tree view
+alias lot='l. -s'                       ## Order list Tree view
+alias lu='du -sh * | sort -h'           ## Same as former but counting size from folders too
+alias lc='find . -type f | wc -l'       ## Gets a total recursirve count of existing files, no folders
+
+# ------ cd command behavior
+alias home='cd'
+alias cd.='cd ..'                       ## get rid of command not found
+alias ..='cd ..'                        ## short cd ..
+alias ..3='cd ../../../'                ## quick way to get out 3 levels dir
+
+# ------ grep command output
+alias grep='grep --color=auto'          ## Colorize the grep command output
+alias egrep='egrep --color=auto'        ## Colorize the egrep command output
+alias fgrep='fgrep --color=auto'        ## Colorize the fgrep command output
+
+# ------ create parent directories on demand
+alias mkdir='mkdir -pv'
+
+# ------ previsão do tempo/weather
+alias wttr='curl https://pt-br.wttr.in/'                      ## Actual location
+alias clima='curl https://pt-br.wttr.in/Praia+do+Rosa\?F'     ## Next 4 days's weater to Praia do Rosa beach location
+alias tempo='curl https://pt-br.wttr.in/Praia+do+Rosa\?0Q'     ## Today's weater to Praia do Rosa beach location
+alias tempocurto='curl https://pt-br.wttr.in/Praia+do+Rosa\?format\="Praia+do+Rosa+%m+%t\nSensação:+%f+Vento:+%w+Precip:+%p+U:+%h+Zênit:%z+Pôr:%s"'
+alias moon='curl https://pt-br.wttr.in/moon'                  ## Moon phase
+
+# ------- command short cuts to save time
+alias h='history'
+alias j='jobs -l'
+
+# ------ make mount command output pretty and human readable format
+alias mntc='mount | column -t'
+alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
+
+# ------ Get system memory, cpu usage, and gpu memory info quickly
+alias meminfo='free -m -l -t'                                 ## pass options to free
+alias psmem='ps auxf | sort -nr -k 4'                         ## get top process eating memory
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'            ## get top process eating memory
+alias pscpu='ps auxf | sort -nr -k 3'                         ## get top process eating cpu
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'            ## get top process eating cpu
+alias cpuinfo='lscpu'                                         ## Get server cpu info
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log' ## get GPU ram on desktop / laptop
+
+# ------ resume wget by default
+alias wget='wget -c'                                          ## this one saved by butt so many times
+
+# ------ neovim
+#alias v=nvim
+#alias vi=v
+#alias vim=v
+
+### todo.sh ###
+#aalias t="$HOME/.local/bin/todo.sh -d $HOME/.config/todo/todo"
+
+### OTHERS ###
+alias top='htop'
+#alias untar='tar -zxvf $1'  ## Open a tar.gz formated folder
+#alias tarc='tar -czvf $1'    ## Compressing a folder in tar.gz format
+alias df="df -Tha --total"
+
+# git
+alias gcl='git clone --depth 1'
+alias gi='git init'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push origin master'
+### Git Related Aliases ### (REVISAR)
+alias gs='git status'  
+alias gb='git branch'  
+alias gr='git remote -v'  
+alias gl='git log --oneline'      ## Gets a log info view in a single line format
+alias glc="git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50" ## Get a list with the most changed files from 12 months ago.**  
+alias gld='git log –oneline –decorate –graph –all'    ## Show all the branches in the tree format history with pointers.**  
+alias glp="git log -g --grep='PHP' -10 --pretty='%h - %s - %cn - %cd'" ## Gets info from log filtering by some fixed key in commit messages. I am using some keys in message commits, [just like these.](https://gitlab.com/-/snippets/2096890)**  
+alias glf='git for-each-ref --sort=-committerdate'    ## Get commits list by DESC order
+alias gpom='git push origin master'  
+alias gpod='git push origin develop'
